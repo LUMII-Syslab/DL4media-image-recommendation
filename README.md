@@ -1,1 +1,1 @@
-# DL4media-image-recommendation
+# DL4Media_CLIP
