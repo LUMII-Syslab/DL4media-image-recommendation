@@ -1,0 +1,18 @@
+<!doctype html>
+
+<title>Find images</title>
+
+<a href="/">Find images</a>
+
+<h1>Results:</h1>
+
+<div>
+	{% for item in results %}
+		<div>
+			<span>Confidence: {{item.value}}</span>
+			<div>
+				<img src="{{url_for('get_image', filename=item.image)}}" alt="No image" width="500"/>
+			</div>
+		</div>
+	{% endfor %}
+</div>

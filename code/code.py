@@ -826,9 +826,16 @@ def get_general_sim(text):
 
 def get_top_k(text):
     sim = get_general_sim(text)
-    val, idx = torch.topk(torch.tensor(sim), k = 5)
+    val, idx = torch.topk(torch.tensor(sim), k = 8)
 
-    return idx[0].data.numpy()
+    indices = idx[0].data.numpy() 
+    values = val[0].data.numpy() 
+
+    results = []
+    for i, idx in enumerate(indices):
+      results.append({"image": str(idx) + ".jpg", "value": values[i]})
+
+    return results
     
 def get_images(text):
     idx = get_top_k(text)
